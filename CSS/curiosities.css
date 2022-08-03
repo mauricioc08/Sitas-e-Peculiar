@@ -302,10 +302,19 @@ span {
 
   }
 
+  .introducao-img img {
+    object-fit: contain;
+  }
+
   .section-info {
     font-size: 1.7em;
     color: #222222;
     height: 100%;
+  }
+
+
+  .section-img img {
+    object-fit: contain;
   }
 
 }
@@ -337,10 +346,6 @@ span {
     font-size: .8em;
   }
 
-  .introducao-img {
-    width: 100%;
-    height: 150px;
-  }
 
   .introducao-img img {
     object-fit: contain;
@@ -351,12 +356,5 @@ span {
     font-size: .56em;
   }
 
-  .section-img {
-    width: 100%;
-    height: 150px;
-  }
 
-  .section-img img {
-    object-fit: contain;
-  }
 }
