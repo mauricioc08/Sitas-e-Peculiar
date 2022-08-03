@@ -1,0 +1,3 @@
+# Sitas-e-Peculiar
+A simple informational website
+Created with HTML and CSS, (Sitas&peculiar) is intended to show some tips and information about species, food, environment, breeding cockatiels and much more...
