@@ -337,8 +337,26 @@ span {
     font-size: .8em;
   }
 
+  .introducao-img {
+    width: 100%;
+    height: 150px;
+  }
+
+  .introducao-img img {
+    object-fit: contain;
+  }
+
 
   .section p {
     font-size: .56em;
+  }
+
+  .section-img {
+    width: 100%;
+    height: 150px;
+  }
+
+  .section-img img {
+    object-fit: contain;
   }
 }
