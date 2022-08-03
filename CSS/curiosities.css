@@ -299,11 +299,15 @@ span {
     font-size: 1.1em;
     color: #222222e0;
     height: 100%;
+    text-align: center;
+  }
 
+  .introducao-dicas {
+    flex-direction: column;
   }
 
   .introducao-img img {
-    object-fit: contain;
+    object-fit: cover;
   }
 
   .section-info {
@@ -312,10 +316,13 @@ span {
     height: 100%;
   }
 
+  .section {
+    flex-direction: column;
 
-  .section-img img {
-    object-fit: contain;
   }
+
+
+
 
 }
 
@@ -342,18 +349,30 @@ span {
     padding: 15px;
   }
 
+  .introducao-dicas {
+    height: 500px;
+  }
+
+  .introducao-img img {
+    object-fit: contain;
+    width: 100%;
+    height: 300px;
+  }
+
   .introducao-info {
     font-size: .8em;
   }
 
-
-  .introducao-img img {
-    object-fit: contain;
+  .section {
+    height: 500px;
   }
-
 
   .section p {
     font-size: .56em;
+  }
+
+  .section-img img {
+    object-fit: cover;
   }
 
 
