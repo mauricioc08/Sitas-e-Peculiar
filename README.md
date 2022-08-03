@@ -1,3 +1,6 @@
 # Sitas-e-Peculiar
 A simple informational website
 Created with HTML and CSS, (Sitas&peculiar) is intended to show some tips and information about species, food, environment, breeding cockatiels and much more...
+
+Um site informativo simples
+Criado com HTML e CSS, (Sitas&peculiar) tem como objetivo mostrar algumas dicas e informações sobre espécies, alimentação, meio ambiente, criação de calopsitas e muito mais...
