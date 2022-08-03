@@ -204,6 +204,24 @@ img {
     font-size: 1.8em;
     padding: 15px;
   }
+
+  .introducao-dicas {
+    flex-direction: column;
+    text-align: center;
+    height: 500px;
+  }
+
+  .introducao-info h1 {
+    margin: 0px;
+  }
+
+
+  .introducao-img img {
+    width: 100%;
+    height: 250px;
+  }
+
+
 }
 
 @media (max-width: 396px) {
