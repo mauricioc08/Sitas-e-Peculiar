@@ -9,3 +9,6 @@ Importante ressaltar que esse é um projeto feito totalmente do zero, sem qualqu
 Fiz esse projeto na intenção de praticar meus conhecimentos em HTML e CSS.
 Estou satisfeito com resultado, mas aceito críticas ou sugestões.
 
+https://mauricioc08.github.io/Sitas-e-Peculiar/
+
+![Captura de tela 2022-11-08 150713](https://user-images.githubusercontent.com/105306316/200642062-3a2df590-cf3a-498d-b4ed-afed75a87b50.png)
