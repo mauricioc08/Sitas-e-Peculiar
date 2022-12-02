@@ -5,8 +5,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html,
 body {
   background: rgba(245, 245, 245, 0.409);
+  scroll-behavior: smooth;
 }
 
 img {
@@ -67,8 +69,6 @@ img {
   color: rgb(255, 60, 0);
 }
 
-/*botão fixo */
-
 .botao-topo {
   text-decoration: none;
   color: white;
@@ -77,6 +77,13 @@ img {
   position: fixed;
   right: 155px;
   bottom: 10px;
+  opacity: 70%;
+  transition: .2s;
+}
+
+.botao-topo:hover {
+  opacity: 1;
+  padding: 15px;
 }
 
 /*introdução*/
