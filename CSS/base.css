@@ -1,0 +1,130 @@
+/* ==========================================================================
+   base.css — reset, tokens, tipografia e tema
+   ========================================================================== */
+
+:root {
+  /* paleta amostrada das fotos: crista, bochecha, penas */
+  --creme:      #FBF7F0;
+  --creme-2:    #F4EDE1;
+  --manteiga:   #F2C94C;
+  --manteiga-2: #FBEBBB;
+  --bochecha:   #C4451F;
+  --perola:     #6E6A63;
+  --grafite:    #262320;
+  --musgo:      #4A5D4E;
+  --linha:      #E4DCCD;
+
+  /* papéis */
+  --bg:      var(--creme);
+  --bg-2:    var(--creme-2);
+  --texto:   var(--grafite);
+  --texto-2: #55514A;
+  --texto-3: var(--perola);
+  --borda:   var(--linha);
+  --cartao:  #FFFFFF;
+  --acento:  var(--manteiga);
+
+  --titulo: 'Outfit', system-ui, -apple-system, sans-serif;
+  --corpo:  'Karla', system-ui, -apple-system, sans-serif;
+
+  --env: 66rem;
+  --raio: 12px;
+  --raio-p: 9px;
+}
+
+/* O tema escuro não inverte o claro: o fundo é um preto quente, e as cores
+   de acento perdem saturação para não vibrarem sobre ele. */
+[data-tema="escuro"] {
+  --bg:      #1A1815;
+  --bg-2:    #221F1B;
+  --texto:   #F2ECE2;
+  --texto-2: #C9C2B6;
+  --texto-3: #9C958A;
+  --borda:   #38332C;
+  --cartao:  #232019;
+  --manteiga:   #E8C25C;
+  --manteiga-2: #3A3220;
+  --bochecha:   #F08A5F;
+  --musgo:      #8FB098;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* compensa o header fixo ao pular para uma âncora */
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--bg);
+  color: var(--texto);
+  font-family: var(--corpo);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--titulo);
+  font-weight: 600;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+p { text-wrap: pretty; }
+
+a { color: inherit; }
+
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol { list-style-position: inside; }
+
+button { font: inherit; }
+
+/* foco visível e consistente em tudo que é interativo */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--bochecha);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* pular para o conteúdo — primeiro tab da página */
+.pular {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--acento);
+  color: #2A2515;
+  padding: .7rem 1.2rem;
+  font-weight: 600;
+  z-index: 100;
+  border-radius: 0 0 var(--raio-p) 0;
+}
+.pular:focus {
+  left: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

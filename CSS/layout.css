@@ -1,0 +1,254 @@
+/* ==========================================================================
+   layout.css — container, cabeçalho, rodapé, estrutura de página
+   ========================================================================== */
+
+.env {
+  max-width: var(--env);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* --------------------------------------------------------------- progresso */
+
+.progresso {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 3px;
+  z-index: 60;
+  background: transparent;
+  pointer-events: none;
+}
+
+.progresso i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--acento);
+  transition: width .08s linear;
+}
+
+/* ---------------------------------------------------------------- cabeçalho */
+
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--borda);
+}
+
+.topo-linha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: .9rem 0;
+}
+
+.marca {
+  font-family: var(--titulo);
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: -.025em;
+  text-decoration: none;
+  white-space: nowrap;
+  color: var(--texto);
+}
+
+.marca span { color: var(--bochecha); }
+
+.nav {
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav a {
+  font-size: .95rem;
+  font-weight: 500;
+  color: var(--texto-3);
+  text-decoration: none;
+  padding: .3rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color .18s, border-color .18s;
+}
+
+.nav a:hover { color: var(--texto); }
+
+.nav a[aria-current="page"] {
+  color: var(--texto);
+  border-color: var(--acento);
+}
+
+.acoes {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
+.icone-btn {
+  background: none;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: var(--texto-3);
+  transition: color .18s, border-color .18s;
+}
+
+.icone-btn:hover {
+  color: var(--texto);
+  border-color: var(--texto-3);
+}
+
+.menu-btn { display: none; }
+
+/* menu mobile: fora do fluxo até ser aberto pelo JS.
+   Sem JS o <nav> permanece visível na largura mobile — ver regra no media. */
+.nav-mobile {
+  display: none;
+  border-top: 1px solid var(--borda);
+  padding: .5rem 0 1rem;
+}
+
+.nav-mobile.aberto { display: block; }
+
+.nav-mobile ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-mobile a {
+  display: block;
+  padding: .75rem .25rem;
+  text-decoration: none;
+  color: var(--texto-2);
+  font-weight: 500;
+  border-bottom: 1px solid color-mix(in srgb, var(--borda) 50%, transparent);
+}
+
+.nav-mobile a[aria-current="page"] {
+  color: var(--texto);
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------------ rodapé */
+
+.rodape {
+  border-top: 1px solid var(--borda);
+  background: var(--bg-2);
+  margin-top: 4rem;
+  padding: 3rem 0 2.5rem;
+}
+
+.rodape-grade {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 2.5rem 4rem;
+  margin-bottom: 2.5rem;
+}
+
+.rodape h3 {
+  font-size: .95rem;
+  margin-bottom: .85rem;
+  color: var(--texto);
+}
+
+.rodape p,
+.rodape li {
+  font-size: .92rem;
+  color: var(--texto-3);
+}
+
+.rodape ul {
+  list-style: none;
+  display: grid;
+  gap: .5rem;
+}
+
+.rodape a {
+  color: var(--texto-3);
+  text-decoration: none;
+  transition: color .18s;
+}
+
+.rodape a:hover {
+  color: var(--texto);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.rodape-fim {
+  border-top: 1px solid var(--borda);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: .88rem;
+  color: var(--texto-3);
+}
+
+.rodape-fim strong { color: var(--texto-2); font-weight: 600; }
+
+/* ------------------------------------------------------- botão voltar topo */
+
+.topo-btn {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 40;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--acento);
+  color: #2A2515;
+  border: none;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 18%);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity .22s, transform .22s, visibility .22s;
+}
+
+.topo-btn.visivel {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+/* ------------------------------------------------------------- responsivo */
+
+@media (max-width: 860px) {
+  .nav { display: none; }
+  .menu-btn { display: grid; }
+  .rodape-grade { gap: 2rem; }
+}
+
+@media (max-width: 560px) {
+  .env { padding: 0 1.15rem; }
+  .rodape-grade { grid-template-columns: 1fr; }
+  .topo-btn { right: 1rem; bottom: 1rem; }
+}
+
+/* Sem JavaScript o botão de menu não faz nada, então a navegação volta a
+   aparecer empilhada — o site continua navegável. */
+@media (max-width: 860px) {
+  .sem-js .nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.1rem;
+    padding-bottom: .75rem;
+  }
+  .sem-js .topo-linha { flex-wrap: wrap; }
+  .sem-js .menu-btn { display: none; }
+}

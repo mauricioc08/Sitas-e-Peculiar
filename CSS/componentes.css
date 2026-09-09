@@ -1,0 +1,651 @@
+/* ==========================================================================
+   componentes.css — peças reutilizáveis entre as páginas
+   ========================================================================== */
+
+/* --------------------------------------------------------------- tipografia
+   de seção */
+
+.olho {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--texto-2);
+  background: var(--manteiga-2);
+  padding: .35rem .8rem;
+  border-radius: 999px;
+  margin-bottom: 1.4rem;
+}
+
+.faixa {
+  padding: 3.5rem 0;
+  border-bottom: 1px solid var(--borda);
+}
+
+.faixa:last-of-type { border-bottom: none; }
+
+.faixa > h2 {
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  margin-bottom: .5rem;
+}
+
+.faixa > .sub {
+  color: var(--texto-3);
+  max-width: 56ch;
+  margin-bottom: 2.25rem;
+}
+
+/* ------------------------------------------------------------------ botões */
+
+.btn {
+  font-family: var(--corpo);
+  font-weight: 600;
+  font-size: .97rem;
+  padding: .7rem 1.35rem;
+  border-radius: var(--raio-p);
+  text-decoration: none;
+  border: 1px solid transparent;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s, border-color .18s;
+}
+
+.btn-cheio {
+  background: var(--acento);
+  color: #2A2515;
+}
+
+.btn-cheio:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgb(242 201 76 / 35%);
+}
+
+.btn-vazio {
+  border-color: var(--borda);
+  color: var(--texto);
+}
+
+.btn-vazio:hover { border-color: var(--texto-3); }
+
+/* -------------------------------------------------------------------- hero */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 3.5rem;
+  align-items: center;
+  padding: 4rem 0 3.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.3rem, 5.2vw, 3.9rem);
+  letter-spacing: -.035em;
+  line-height: 1.05;
+}
+
+.hero h1 b {
+  font-weight: 700;
+  color: var(--bochecha);
+}
+
+.hero .lead {
+  margin-top: 1.4rem;
+  font-size: 1.12rem;
+  color: var(--texto-2);
+  max-width: 46ch;
+}
+
+.hero-acoes {
+  display: flex;
+  gap: .75rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-img {
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--bg-2);
+}
+
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* cabeçalho das páginas internas */
+.cabeca {
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px solid var(--borda);
+}
+
+.cabeca h1 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  letter-spacing: -.03em;
+}
+
+.cabeca .lead {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: var(--texto-2);
+  max-width: 58ch;
+}
+
+/* ----------------------------------------------------------------- números */
+
+.numeros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 2rem 0 3rem;
+  border-bottom: 1px solid var(--borda);
+}
+
+.numero b {
+  display: block;
+  font-family: var(--titulo);
+  font-weight: 700;
+  font-size: 2.1rem;
+  letter-spacing: -.03em;
+  line-height: 1;
+}
+
+.numero span {
+  font-size: .9rem;
+  color: var(--texto-3);
+}
+
+/* ------------------------------------------------------------ cards de dica */
+
+.dicas {
+  display: grid;
+  gap: 1rem;
+}
+
+.dica {
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  scroll-margin-top: 5rem;
+}
+
+/* a foto acompanha a altura do card, que é ditada pelo texto */
+.dica-foto {
+  background: var(--bg-2);
+  position: relative;
+  min-height: 12rem;
+}
+
+.dica-foto picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.dica-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dica-corpo { padding: 1.75rem 2rem; }
+
+.dica-num {
+  font-family: var(--titulo);
+  font-weight: 700;
+  font-size: .82rem;
+  color: var(--texto-3);
+  letter-spacing: .04em;
+  display: block;
+  margin-bottom: .4rem;
+}
+
+.dica h3 {
+  font-size: 1.28rem;
+  margin-bottom: .6rem;
+}
+
+.dica p {
+  color: var(--texto-2);
+  font-size: .99rem;
+}
+
+.dica p + p { margin-top: .7rem; }
+
+.dica ul {
+  margin-top: .7rem;
+  color: var(--texto-2);
+  font-size: .99rem;
+  list-style: none;
+}
+
+.dica ul li {
+  padding-left: 1.1rem;
+  position: relative;
+  margin-bottom: .35rem;
+}
+
+.dica ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .65em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--acento);
+}
+
+/* card sem foto ocupa a linha inteira */
+.dica.sem-foto { grid-template-columns: 1fr; }
+
+/* ----------------------------------------------------- blocos de conteúdo */
+
+.bloco {
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 2rem;
+  scroll-margin-top: 5rem;
+}
+
+.bloco + .bloco { margin-top: 1rem; }
+
+.bloco h3 {
+  font-size: 1.3rem;
+  margin-bottom: .75rem;
+}
+
+.bloco p { color: var(--texto-2); }
+.bloco p + p { margin-top: .8rem; }
+
+.bloco-figura {
+  margin: 1.25rem 0 0;
+  border-radius: var(--raio-p);
+  overflow: hidden;
+}
+
+.bloco-figura img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.bloco-figura figcaption {
+  font-size: .85rem;
+  color: var(--texto-3);
+  padding-top: .5rem;
+}
+
+/* ------------------------------------------------------ tabela de alimentos */
+
+.alim {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.alim-col {
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  background: var(--cartao);
+}
+
+.alim-cab {
+  font-family: var(--titulo);
+  font-weight: 600;
+  font-size: .92rem;
+  padding: .85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  border-bottom: 1px solid var(--borda);
+}
+
+.alim-col.pode .alim-cab {
+  color: var(--musgo);
+  background: color-mix(in srgb, var(--musgo) 10%, transparent);
+}
+
+.alim-col.nao .alim-cab {
+  color: var(--bochecha);
+  background: color-mix(in srgb, var(--bochecha) 9%, transparent);
+}
+
+.alim-col ul {
+  list-style: none;
+  padding: .4rem 0;
+}
+
+.alim-col li {
+  padding: .55rem 1.25rem;
+  font-size: .96rem;
+}
+
+.alim-col li + li {
+  border-top: 1px solid color-mix(in srgb, var(--borda) 55%, transparent);
+}
+
+.alim-col li b { font-weight: 600; }
+
+.alim-col li span {
+  color: var(--texto-3);
+  font-size: .88rem;
+}
+
+/* ------------------------------------------------------------------ avisos */
+
+.aviso {
+  border: 1px solid color-mix(in srgb, var(--bochecha) 35%, var(--borda));
+  border-left: 3px solid var(--bochecha);
+  background: color-mix(in srgb, var(--bochecha) 6%, transparent);
+  padding: 1rem 1.35rem;
+  border-radius: 0 var(--raio-p) var(--raio-p) 0;
+  font-size: .97rem;
+  color: var(--texto-2);
+}
+
+.aviso b { color: var(--bochecha); }
+.aviso + * { margin-top: 1.25rem; }
+
+.nota {
+  border: 1px solid var(--borda);
+  border-left: 3px solid var(--acento);
+  background: color-mix(in srgb, var(--manteiga) 8%, transparent);
+  padding: 1rem 1.35rem;
+  border-radius: 0 var(--raio-p) var(--raio-p) 0;
+  font-size: .97rem;
+  color: var(--texto-2);
+}
+
+.nota b { color: var(--texto); }
+
+/* ---------------------------------------------------------------- galeria */
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .75rem;
+}
+
+.galeria figure {
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-2);
+}
+
+.galeria img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: transform .4s;
+}
+
+.galeria figure:hover img { transform: scale(1.04); }
+
+.galeria figcaption {
+  font-size: .82rem;
+  color: var(--texto-3);
+  padding: .5rem .1rem 0;
+}
+
+/* lista simples de mutações, ao lado da galeria */
+.mutacoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+.mutacoes li {
+  border: 1px solid var(--borda);
+  background: var(--cartao);
+  border-radius: 999px;
+  padding: .35rem .85rem;
+  font-size: .88rem;
+  color: var(--texto-2);
+}
+
+/* ------------------------------------------------------------------ índice */
+
+.com-indice {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  gap: 3rem;
+  align-items: start;
+  padding-top: 2.5rem;
+}
+
+.indice {
+  position: sticky;
+  top: 5.5rem;
+  font-size: .92rem;
+}
+
+.indice h2 {
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--texto-3);
+  margin-bottom: .85rem;
+  font-weight: 600;
+}
+
+.indice ol {
+  list-style: none;
+  display: grid;
+  gap: .1rem;
+  counter-reset: item;
+}
+
+.indice a {
+  display: block;
+  padding: .4rem .7rem;
+  color: var(--texto-3);
+  text-decoration: none;
+  border-left: 2px solid var(--borda);
+  border-radius: 0 4px 4px 0;
+  transition: color .18s, border-color .18s, background .18s;
+}
+
+.indice a:hover {
+  color: var(--texto);
+  background: color-mix(in srgb, var(--acento) 10%, transparent);
+}
+
+.indice a.ativo {
+  color: var(--texto);
+  border-color: var(--acento);
+  background: color-mix(in srgb, var(--acento) 14%, transparent);
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------------- acordeão */
+
+.faq { display: grid; gap: .6rem; }
+
+.faq details {
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-p);
+  background: var(--cartao);
+  overflow: hidden;
+}
+
+.faq summary {
+  padding: 1rem 1.35rem;
+  cursor: pointer;
+  font-family: var(--titulo);
+  font-weight: 600;
+  font-size: 1.02rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq summary:hover { color: var(--bochecha); }
+
+.faq summary::after {
+  content: "+";
+  font-size: 1.5rem;
+  color: var(--texto-3);
+  font-weight: 400;
+  line-height: 1;
+  flex: none;
+  transition: transform .6s cubic-bezier(.33, 1, .68, 1), color .3s;
+}
+
+.faq details[open] summary::after {
+  transform: rotate(135deg);
+  color: var(--bochecha);
+}
+
+.faq details[data-fechando] summary::after {
+  transform: none;
+  color: var(--texto-3);
+}
+
+.faq details[open] summary { border-bottom: 1px solid var(--borda); }
+
+/* A animação de abertura usa grid-template-rows de 0fr para 1fr: é o jeito
+   de transicionar até uma altura que só o conteúdo conhece. O wrapper com
+   overflow hidden é obrigatório para o filho ser recortado durante o
+   movimento. */
+.faq-corpo {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .6s cubic-bezier(.33, 1, .68, 1);
+}
+
+.faq details[open] .faq-corpo { grid-template-rows: 1fr; }
+
+/* Um quadro entre o details abrir e a altura mudar: sem este estado o
+   conteúdo já apareceria na altura final e não haveria o que animar. */
+.faq details[data-abrindo] .faq-corpo {
+  grid-template-rows: 0fr;
+  transition: none;
+}
+
+
+/* enquanto o JS segura o fechamento, o details ainda está [open]:
+   este seletor reverte a animação antes de o conteúdo sumir.
+   Fechar é um pouco mais rápido que abrir — esperar para esconder
+   algo que já foi lido incomoda. */
+.faq details[data-fechando] .faq-corpo {
+  grid-template-rows: 0fr;
+  transition-duration: .42s;
+}
+
+.faq-corpo > div {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.faq-texto {
+  padding: 1.1rem 1.35rem;
+  color: var(--texto-2);
+  font-size: .98rem;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .45s ease .18s, transform .45s ease .18s;
+}
+
+.faq details[open] .faq-texto {
+  opacity: 1;
+  transform: none;
+}
+
+.faq details[data-fechando] .faq-texto {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.faq-texto p + p { margin-top: .7rem; }
+
+/* ---------------------------------------------------------- cards de atalho */
+
+.atalhos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+
+.atalho {
+  display: block;
+  text-decoration: none;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 1.6rem;
+  transition: transform .18s, border-color .18s, box-shadow .18s;
+}
+
+.atalho:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--acento) 60%, var(--borda));
+  box-shadow: 0 8px 24px rgb(0 0 0 / 7%);
+}
+
+.atalho h3 {
+  font-size: 1.15rem;
+  margin: .8rem 0 .4rem;
+}
+
+.atalho p {
+  font-size: .93rem;
+  color: var(--texto-3);
+}
+
+.atalho-icone {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--manteiga-2);
+  color: var(--texto-2);
+  display: grid;
+  place-items: center;
+}
+
+/* ------------------------------------------------------------- responsivo */
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 2.5rem;
+  }
+  .hero-img { aspect-ratio: 16 / 10; }
+  .dica { grid-template-columns: 1fr; }
+  .dica-foto { position: static; min-height: 0; }
+  .dica-foto picture { position: static; }
+  .dica-foto img { aspect-ratio: 16 / 9; }
+  .galeria { grid-template-columns: repeat(3, 1fr); }
+  .com-indice { grid-template-columns: 1fr; gap: 1.5rem; }
+  .indice {
+    position: static;
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-p);
+    padding: 1rem 1.15rem;
+    background: var(--cartao);
+  }
+}
+
+@media (max-width: 560px) {
+  .alim { grid-template-columns: 1fr; }
+  .numeros { grid-template-columns: 1fr; gap: 1.25rem; }
+  .galeria { grid-template-columns: repeat(2, 1fr); }
+  .dica-corpo { padding: 1.35rem 1.25rem; }
+  .bloco { padding: 1.5rem 1.25rem; }
+}
