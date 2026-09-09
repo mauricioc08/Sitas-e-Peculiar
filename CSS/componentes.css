@@ -494,26 +494,85 @@
 
 .faq summary::-webkit-details-marker { display: none; }
 
+.faq summary:hover { color: var(--bochecha); }
+
 .faq summary::after {
   content: "+";
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--texto-3);
   font-weight: 400;
   line-height: 1;
   flex: none;
+  transition: transform .6s cubic-bezier(.33, 1, .68, 1), color .3s;
 }
 
-.faq details[open] summary::after { content: "\2212"; }
+.faq details[open] summary::after {
+  transform: rotate(135deg);
+  color: var(--bochecha);
+}
+
+.faq details[data-fechando] summary::after {
+  transform: none;
+  color: var(--texto-3);
+}
 
 .faq details[open] summary { border-bottom: 1px solid var(--borda); }
 
+/* A animação de abertura usa grid-template-rows de 0fr para 1fr: é o jeito
+   de transicionar até uma altura que só o conteúdo conhece. O wrapper com
+   overflow hidden é obrigatório para o filho ser recortado durante o
+   movimento. */
 .faq-corpo {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .6s cubic-bezier(.33, 1, .68, 1);
+}
+
+.faq details[open] .faq-corpo { grid-template-rows: 1fr; }
+
+/* Um quadro entre o details abrir e a altura mudar: sem este estado o
+   conteúdo já apareceria na altura final e não haveria o que animar. */
+.faq details[data-abrindo] .faq-corpo {
+  grid-template-rows: 0fr;
+  transition: none;
+}
+
+
+/* enquanto o JS segura o fechamento, o details ainda está [open]:
+   este seletor reverte a animação antes de o conteúdo sumir.
+   Fechar é um pouco mais rápido que abrir — esperar para esconder
+   algo que já foi lido incomoda. */
+.faq details[data-fechando] .faq-corpo {
+  grid-template-rows: 0fr;
+  transition-duration: .42s;
+}
+
+.faq-corpo > div {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.faq-texto {
   padding: 1.1rem 1.35rem;
   color: var(--texto-2);
   font-size: .98rem;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .45s ease .18s, transform .45s ease .18s;
 }
 
-.faq-corpo p + p { margin-top: .7rem; }
+.faq details[open] .faq-texto {
+  opacity: 1;
+  transform: none;
+}
+
+.faq details[data-fechando] .faq-texto {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.faq-texto p + p { margin-top: .7rem; }
 
 /* ---------------------------------------------------------- cards de atalho */
 

@@ -103,11 +103,24 @@ for entrada in "${MAPA[@]}"; do
   done
 done
 
-# favicon a partir da foto pessoal
-if [[ -f "$ORIG/nick.jpg" ]]; then
-  convert "$ORIG/nick.jpg" -auto-orient -resize 180x180^ -gravity center -extent 180x180 \
-    -strip -quality 88 "$SAIDA/favicon-180.jpg"
-  echo "-> favicon-180.jpg"
+# Favicon circular, a partir da foto pessoal. O recorte 368x368+0+60 enquadra
+# o rosto da ave; o PNG guarda a transparência fora do círculo, que o JPEG
+# não suportaria.
+FOTO_ICONE="$NOVAS/nick.jpg"
+if [[ -f "$FOTO_ICONE" ]]; then
+  for tam in 32 180 512; do
+    meio=$(( tam / 2 - 1 ))
+    convert "$FOTO_ICONE" \
+      -auto-orient \
+      -crop 368x368+0+60 +repage \
+      -resize "${tam}x${tam}" \
+      \( -size "${tam}x${tam}" xc:none -fill white \
+         -draw "circle $meio,$meio $meio,0" \) \
+      -alpha off -compose CopyOpacity -composite \
+      -define png:color-type=6 \
+      "$SAIDA/favicon-${tam}.png"
+    echo "-> favicon-${tam}.png"
+  done
 fi
 
 echo
