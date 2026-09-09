@@ -1,61 +1,65 @@
 # Sitas&Peculiar
 
-Guia de cuidados com calopsitas: alimentação, ambiente, saúde e comportamento,
+Guia de cuidados com calopsitas — alimentação, ambiente, saúde e comportamento,
 em linguagem simples para quem tem ou pretende ter uma.
 
 **https://mauricioc08.github.io/Sitas-e-Peculiar/**
 
 Um projeto da CASSIANOTECH.
 
----
+## As páginas
 
-## Para quem vai mexer no site
-
-### Páginas
-
-| Arquivo | Conteúdo |
+| Página | O que traz |
 |---|---|
-| `index.html` | Home: apresentação, atalhos, o que saber antes de adotar, dúvidas frequentes |
-| `dicas.html` | 10 dicas de cuidados, com índice lateral |
-| `alimentacao.html` | Alimentos seguros e tóxicos, dieta, sinais de alerta |
-| `curiosidades.html` | Origem, mutações, temperamento, adestramento, sexagem |
-| `sobre.html` | Por que o site existe, de onde vem a informação, CASSIANOTECH |
+| Início | Apresentação, atalhos por assunto, o que saber antes de adotar e dúvidas frequentes |
+| Dicas | Dez cuidados essenciais: gaiola, comida, banho, higiene, brincadeiras, sono e veterinário |
+| Alimentação | O que pode e o que nunca pode ser oferecido, como montar a dieta e sinais de alerta |
+| Curiosidades | Origem, tipos de calopsita, temperamento, adestramento e como saber o sexo da ave |
+| Sobre | Por que o site existe, de onde vem a informação e quando procurar ajuda profissional |
 
-### Estrutura
+## Como mexer no site
+
+Não é preciso instalar nada. Abra qualquer arquivo `.html` no navegador para ver
+o resultado, e edite os arquivos direto em um editor de texto.
 
 ```
-CSS/
-  base.css          reset, cores, tipografia, tema escuro
-  layout.css        cabeçalho, rodapé, navegação
-  componentes.css   cards, tabelas, galeria, índice
-JS/
-  main.js           tema, menu, barra de progresso, voltar ao topo
-  indice.js         marca a seção em leitura nas páginas longas
-img/
-  site/             imagens prontas para uso (3 tamanhos, 2 formatos)
-  novas/            fotos originais (não vão para o repositório)
+index.html          página inicial
+dicas.html          alimentacao.html
+curiosidades.html   sobre.html
+
+CSS/    aparência do site
+  base.css          cores, letras e o modo escuro
+  layout.css        topo, rodapé e menu
+  componentes.css   blocos de conteúdo, tabelas, galeria, perguntas
+
+JS/     comportamentos
+  main.js           troca de tema, menu do celular, barra de leitura
+  indice.js         destaca o item do índice conforme você lê
+  faq.js            animação das perguntas frequentes
+
+img/site/           todas as imagens do site
+site.webmanifest    ícone e nome ao salvar o site no celular
 ```
 
-Sem framework e sem etapa de build: é só abrir os arquivos. O JavaScript é
-melhoria progressiva — sem ele o site continua legível e navegável.
+O topo e o rodapé se repetem nas cinco páginas. Ao mudar um deles, lembre de
+aplicar a mesma alteração nas outras.
 
-### Imagens
+O site funciona mesmo se o JavaScript falhar: o conteúdo continua inteiro, só
+sem as animações e sem a troca de tema.
 
-O script gera as versões usadas no site a partir dos originais em `img/novas/`,
-em três larguras e dois formatos, sem nunca ampliar além do tamanho real:
+## Imagens
 
-```bash
-bash scripts/processar-imagens.sh
-```
+Cada foto está em três larguras (480, 960 e 1600 pixels) e dois formatos. O
+navegador escolhe sozinho a menor versão que serve para a tela de quem acessa,
+e é isso que faz o site abrir rápido no celular.
 
-Requer ImageMagick com suporte a WebP. Para trocar ou acrescentar fotos, edite
-a lista `MAPA` no início do script.
+Para trocar uma foto, gere as seis versões com o mesmo padrão de nome da atual
+e substitua os arquivos em `img/site/`.
 
-### Conteúdo
+## Sobre o conteúdo
 
 As informações vêm de orientações de médicos-veterinários e de fontes
-especializadas na criação de calopsitas. Têm caráter educativo e não substituem
-consulta veterinária — o aviso aparece em todas as páginas.
+especializadas na criação de calopsitas. São educativas e **não substituem
+consulta veterinária** — o aviso aparece em todas as páginas.
 
-Fotografias do [Unsplash](https://unsplash.com), sob licença de uso livre.
-Tipografia Outfit e Karla, sob licença SIL Open Font.
+Fotografias do Unsplash, de uso livre. Letras Outfit e Karla, do Google Fonts.
