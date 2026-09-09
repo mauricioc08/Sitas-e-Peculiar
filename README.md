@@ -1,6 +1,6 @@
 # Sitas&Peculiar
 
-Guia de cuidados com calopsitas — alimentação, ambiente, saúde e comportamento,
+Guia de cuidados com calopsitas alimentação, ambiente, saúde e comportamento,
 em linguagem simples para quem tem ou pretende ter uma.
 
 **https://mauricioc08.github.io/Sitas-e-Peculiar/**
@@ -60,6 +60,6 @@ e substitua os arquivos em `img/site/`.
 
 As informações vêm de orientações de médicos-veterinários e de fontes
 especializadas na criação de calopsitas. São educativas e **não substituem
-consulta veterinária** — o aviso aparece em todas as páginas.
+consulta veterinária** o aviso aparece em todas as páginas.
 
 Fotografias do Unsplash, de uso livre. Letras Outfit e Karla, do Google Fonts.
